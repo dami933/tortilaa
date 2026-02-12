@@ -1,0 +1,324 @@
+### Respuesta Completa
+
+¡Claro! Aquí tienes el código HTML completo y actualizado para la página web de "El Rincón de la Tortilla Bar & Café". He corregido el botón de reserva (ahora abre un modal funcional), cambiado los colores del botón a azul y verde para un look más fresco y profesional, y añadido el correo electrónico "elrincondelatortilla2022@gmail.com" en la sección de contacto y en el footer.
+
+Para guardar el archivo, te recomiendo guardarlo con el nombre **index.html**. Este es el nombre estándar para la página principal de un sitio web, y puedes abrirlo directamente en cualquier navegador web (como Chrome o Firefox) para verlo.
+
+Copia el código completo a continuación y pégalo en un editor de texto (como Notepad, VS Code o Sublime Text), luego guárdalo como "index.html". Si necesitas imágenes reales, reemplaza las URLs de placeholder con las tuyas.
+
+```html
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>El Rincón de la Tortilla Bar & Café</title>
+    <!-- Bootstrap CSS para diseño moderno y responsivo -->
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/css/bootstrap.min.css" rel="stylesheet">
+    <!-- Google Fonts para tipografía elegante -->
+    <link href="https://fonts.googleapis.com/css2?family=Playfair+Display:wght@400;700&family=Roboto:wght@300;400;500&display=swap" rel="stylesheet">
+    <!-- Font Awesome para iconos -->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css">
+    <style>
+        body {
+            font-family: 'Roboto', sans-serif;
+            background-color: #f8f9fa;
+            color: #333;
+        }
+        .hero {
+            background: linear-gradient(rgba(0,0,0,0.5), rgba(0,0,0,0.5)), url('https://via.placeholder.com/1920x1080?text=Bienvenido+a+El+Rinc%C3%B3n+de+la+Tortilla') center/cover no-repeat;
+            height: 100vh;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            text-align: center;
+            color: white;
+        }
+        .hero h1 {
+            font-family: 'Playfair Display', serif;
+            font-size: 4rem;
+            margin-bottom: 20px;
+        }
+        .hero p {
+            font-size: 1.5rem;
+        }
+        .reserve-btn {
+            background: linear-gradient(45deg, #007bff, #28a745); /* Azul y verde para un look fresco */
+            border: none;
+            padding: 15px 40px;
+            font-size: 1.5rem;
+            font-weight: bold;
+            border-radius: 50px;
+            color: white;
+            text-decoration: none;
+            transition: all 0.3s ease;
+            box-shadow: 0 4px 15px rgba(0,0,0,0.2);
+        }
+        .reserve-btn:hover {
+            transform: translateY(-5px);
+            box-shadow: 0 8px 25px rgba(0,0,0,0.3);
+        }
+        .section-title {
+            font-family: 'Playfair Display', serif;
+            font-size: 2.5rem;
+            margin-bottom: 30px;
+            text-align: center;
+        }
+        .gallery img {
+            transition: transform 0.3s ease, box-shadow 0.3s ease;
+            cursor: pointer;
+        }
+        .gallery img:hover {
+            transform: scale(1.05);
+            box-shadow: 0 10px 30px rgba(0,0,0,0.2);
+        }
+        .map-container {
+            border-radius: 15px;
+            overflow: hidden;
+            box-shadow: 0 4px 15px rgba(0,0,0,0.1);
+        }
+        .testimonial {
+            background-color: #fff;
+            border-radius: 10px;
+            padding: 20px;
+            box-shadow: 0 4px 15px rgba(0,0,0,0.1);
+        }
+        footer {
+            background-color: #343a40;
+            color: white;
+            padding: 40px 0;
+        }
+        .navbar-brand {
+            font-family: 'Playfair Display', serif;
+            font-size: 1.8rem;
+        }
+        .modal-content {
+            border-radius: 15px;
+        }
+        @media (max-width: 768px) {
+            .hero h1 {
+                font-size: 2.5rem;
+            }
+            .hero p {
+                font-size: 1.2rem;
+            }
+        }
+    </style>
+</head>
+<body>
+    <!-- Navbar -->
+    <nav class="navbar navbar-expand-lg navbar-dark bg-dark fixed-top">
+        <div class="container">
+            <a class="navbar-brand" href="#home">El Rincón de la Tortilla</a>
+            <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNav">
+                <span class="navbar-toggler-icon"></span>
+            </button>
+            <div class="collapse navbar-collapse" id="navbarNav">
+                <ul class="navbar-nav ms-auto">
+                    <li class="nav-item"><a class="nav-link" href="#about">Sobre Nosotros</a></li>
+                    <li class="nav-item"><a class="nav-link" href="#menu">Menú</a></li>
+                    <li class="nav-item"><a class="nav-link" href="#gallery">Fotos</a></li>
+                    <li class="nav-item"><a class="nav-link" href="#location">Ubicación</a></li>
+                    <li class="nav-item"><a class="nav-link" href="#contact">Contacto</a></li>
+                </ul>
+            </div>
+        </div>
+    </nav>
+
+    <!-- Hero Section -->
+    <section id="home" class="hero">
+        <div class="container">
+            <h1>El Rincón de la Tortilla Bar & Café</h1>
+            <p>Descubre el sabor auténtico de nuestras tortillas en un ambiente único. ¡Reserva tu mesa y vive una experiencia inolvidable!</p>
+            <a href="#" class="reserve-btn" data-bs-toggle="modal" data-bs-target="#reserveModal">Reservar Mesa Ahora</a>
+        </div>
+    </section>
+
+    <!-- About Section -->
+    <section id="about" class="py-5 bg-light">
+        <div class="container">
+            <h2 class="section-title">Sobre Nosotros</h2>
+            <div class="row">
+                <div class="col-md-6">
+                    <p>En El Rincón de la Tortilla, nos apasiona ofrecerte platos tradicionales con un toque moderno. Nuestro bar y café es el lugar perfecto para disfrutar de tortillas exquisitas, cócteles refrescantes y un ambiente acogedor. Con una terraza soleada y servicios para familias, ¡te esperamos con los brazos abiertos!</p>
+                    <p><strong>Calificación:</strong> 4,71 · 228 reseñas</p>
+                    <p><strong>Rango de precios:</strong> 10-20 €</p>
+                    <p><strong>Tipo:</strong> Bar restaurante</p>
+                </div>
+                <div class="col-md-6">
+                    <img src="https://via.placeholder.com/600x400?text=Interior+Acogedor" alt="Interior del restaurante" class="img-fluid rounded">
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Menu Section -->
+    <section id="menu" class="py-5">
+        <div class="container">
+            <h2 class="section-title">Nuestro Menú</h2>
+            <div class="row">
+                <div class="col-md-4">
+                    <div class="card h-100">
+                        <img src="https://via.placeholder.com/400x300?text=Tortilla+Española" class="card-img-top" alt="Tortilla Española">
+                        <div class="card-body">
+                            <h5 class="card-title">Tortilla Española</h5>
+                            <p class="card-text">Nuestra especialidad: tortilla de patatas fresca y jugosa, preparada al momento.</p>
+                            <p class="text-muted">Precio: 8€</p>
+                        </div>
+                    </div>
+                </div>
+                <div class="col-md-4">
+                    <div class="card h-100">
+                        <img src="https://via.placeholder.com/400x300?text=Cócteles" class="card-img-top" alt="Cócteles">
+                        <div class="card-body">
+                            <h5 class="card-title">Cócteles Refrescantes</h5>
+                            <p class="card-text">Disfruta de una selección de cócteles artesanales en nuestra barra.</p>
+                            <p class="text-muted">Precio: 6-10€</p>
+                        </div>
+                    </div>
+                </div>
+                <div class="col-md-4">
+                    <div class="card h-100">
+                        <img src="https://via.placeholder.com/400x300?text=Platos+Especiales" class="card-img-top" alt="Platos Especiales">
+                        <div class="card-body">
+                            <h5 class="card-title">Platos Especiales</h5>
+                            <p class="card-text">Prueba nuestras creaciones únicas, como tortillas gourmet y tapas variadas.</p>
+                            <p class="text-muted">Precio: 12-18€</p>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Gallery Section -->
+    <section id="gallery" class="py-5 bg-light">
+        <div class="container">
+            <h2 class="section-title">Ver Fotos</h2>
+            <div class="row gallery">
+                <div class="col-md-4 mb-4">
+                    <img src="https://via.placeholder.com/400x300?text=Tortilla+Española" alt="Tortilla Española" class="img-fluid rounded" data-bs-toggle="modal" data-bs-target="#imageModal" data-bs-src="https://via.placeholder.com/800x600?text=Tortilla+Española">
+                </div>
+                <div class="col-md-4 mb-4">
+                    <img src="https://via.placeholder.com/400x300?text=Terraza+Exterior" alt="Terraza Exterior" class="img-fluid rounded" data-bs-toggle="modal" data-bs-target="#imageModal" data-bs-src="https://via.placeholder.com/800x600?text=Terraza+Exterior">
+                </div>
+                <div class="col-md-4 mb-4">
+                    <img src="https://via.placeholder.com/400x300?text=Interior+del+Bar" alt="Interior del Bar" class="img-fluid rounded" data-bs-toggle="modal" data-bs-target="#imageModal" data-bs-src="https://via.placeholder.com/800x600?text=Interior+del+Bar">
+                </div>
+                <div class="col-md-4 mb-4">
+                    <img src="https://via.placeholder.com/400x300?text=Platos+Especiales" alt="Platos Especiales" class="img-fluid rounded" data-bs-toggle="modal" data-bs-target="#imageModal" data-bs-src="https://via.placeholder.com/800x600?text=Platos+Especiales">
+                </div>
+                <div class="col-md-4 mb-4">
+                    <img src="https://via.placeholder.com/400x300?text=Ambiente+Acogedor" alt="Ambiente Acogedor" class="img-fluid rounded" data-bs-toggle="modal" data-bs-target="#imageModal" data-bs-src="https://via.placeholder.com/800x600?text=Ambiente+Acogedor">
+                </div>
+                <div class="col-md-4 mb-4">
+                    <img src="https://via.placeholder.com/400x300?text=Clientes+Felices" alt="Clientes Felices" class="img-fluid rounded" data-bs-toggle="modal" data-bs-target="#imageModal" data-bs-src="https://via.placeholder.com/800x600?text=Clientes+Felices">
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Location Section -->
+    <section id="location" class="py-5">
+        <div class="container">
+            <h2 class="section-title">Ubicación</h2>
+            <div class="row">
+                <div class="col-md-6">
+                    <h4>Dirección</h4>
+                    <p>C. Arte Conceptual, 23, Villa de Vallecas, 28051 Madrid</p>
+                    <h4>Teléfono</h4>
+                    <p>911 09 97 99</p>
+                    <h4>Horario</h4>
+                    <ul class="list-unstyled">
+                        <li><strong>Jueves:</strong> 8:30–23:00</li>
+                        <li><strong>Viernes:</strong> 8:30–24:00</li>
+                        <li><strong>Sábado:</strong> 8:30–24:00</li>
+                        <li><strong>Domingo:</strong> 9:00–23:00</li>
+                        <li><strong>Lunes:</strong> 8:30–23:00</li>
+                        <li><strong>Martes:</strong> Cerrado</li>
+                        <li><strong>Miércoles:</strong> 8:30–23:00</li>
+                    </ul>
+                    <h4>Opciones de Servicios</h4>
+                    <p>Terraza · Tronas</p>
+                </div>
+                <div class="col-md-6">
+                    <div class="map-container">
+                        <iframe src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d3036.552!2d-3.621!3d40.378!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x0%3A0x0!2zNDDCsDIyJzQwLjgiTiAzwrAzNycxOC4wIlc!5e0!3m2!1ses!2ses!4v1234567890123!5m2!1ses!2ses" width="100%" height="400" style="border:0;" allowfullscreen="" loading="lazy"></iframe>
+                    </div>
+                    <p class="mt-3"><a href="https://www.google.com/maps?q=C.+Arte+Conceptual,+23,+Villa+de+Vallecas,+28051+Madrid" target="_blank" class="btn btn-outline-primary">Ver en Google Maps <i class="fas fa-external-link-alt"></i></a></p>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Testimonials Section -->
+    <section class="py-5 bg-light">
+        <div class="container">
+            <h2 class="section-title">Opiniones de Clientes</h2>
+            <div class="row">
+                <div class="col-md-4">
+                    <div class="testimonial">
+                        <p>"¡La mejor tortilla que he probado! El ambiente es increíble y el servicio excelente."</p>
+                        <p class="text-muted">- Ana García</p>
+                    </div>
+                </div>
+                <div class="col-md-4">
+                    <div class="testimonial">
+                        <p>"Perfecto para una cena romántica. La terraza es un plus."</p>
+                        <p class="text-muted">- Carlos López</p>
+                    </div>
+                </div>
+                <div class="col-md-4">
+                    <div class="testimonial">
+                        <p>"Recomiendo las tapas. Volveré pronto."</p>
+                        <p class="text-muted">- María Fernández</p>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Contact Section -->
+    <section id="contact" class="py-5">
+        <div class="container">
+            <h2 class="section-title">Contacto</h2>
+            <p>¿Tienes preguntas? ¡Contáctanos!</p>
+            <p><strong>Email:</strong> <a href="mailto:elrincondelatortilla2022@gmail.com">elrincondelatortilla2022@gmail.com</a></p>
+            <form>
+                <div class="row">
+                    <div class="col-md-6 mb-3">
+                        <input type="text" class="form-control" placeholder="Nombre" required>
+                    </div>
+                    <div class="col-md-6 mb-3">
+                        <input type="email" class="form-control" placeholder="Email" required>
+                    </div>
+                </div>
+                <div class="mb-3">
+                    <textarea class="form-control" rows="4" placeholder="Mensaje" required></textarea>
+                </div>
+                <button type="submit" class="btn btn-primary">Enviar</button>
+            </form>
+        </div>
+    </section>
+
+    <!-- Footer -->
+    <footer>
+        <div class="container">
+            <div class="row">
+                <div class="col-md-6">
+                    <p>&copy; 2023 El Rincón de la Tortilla Bar & Café. Todos los derechos reservados.</p>
+                    <p><strong>Email:</strong> <a href="mailto:elrincondelatortilla2022@gmail.com" class="text-white">elrincondelatortilla2022@gmail.com</a></p>
+                </div>
+                <div class="col-md-6 text-end">
+                    <a href="#" class="text-white me-3"><i class="fab fa-facebook-f"></i></a>
+                    <a href="#" class="text-white me-3"><i class="fab fa-instagram"></i></a>
+                    <a href="#" class="text-white"><i class="fab fa-twitter"></i></a>
+                </div>
+            </div>
+        </div>
+    </footer>
+
+    <!-- Reserve Modal -->
+    <div class="modal fade" id="reserveModal" tabindex="-1">
+        <div class="modal-dialog">
+            <div class
